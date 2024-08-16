@@ -1,0 +1,12 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "no.ks.fiks.link.v1.felles.eiendom.schema.json",
+    "title": "Eiendom",
+    "definitions": {},
+    "type": "object",
+    "properties": {
+        "matrikkelnummer": {
+            "$ref": "no.ks.fiks.link.v1.felles.matrikkelnummer.schema.json"
+        }
+    }
+}

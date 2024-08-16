@@ -1,0 +1,54 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "no.ks.fiks.link.v1.felles.adresse.schema.json",
+    "title": "Adresse",
+    "definitions": {},
+    "type": "object",
+    "properties": {
+        "adressetype": {
+            "type": "object",
+            "description": "Kodeliste: no.ks.fiks.link.v1.kodelister.enkeladressetype.json",
+            "properties": {
+                "kodeverdi": {
+                    "type": "string"
+                },
+                "kodebeskrivelse": {
+                    "type": "string"
+                }
+            }
+        },
+        "adresselinje1": {
+            "type": "string"
+        },
+        "adresselinje2": {
+            "type": "string"
+        },
+        "postadresse": {
+            "type": "object",
+            "description": "Kodeliste: no.ks.fiks.link.v1.kodelister.postadministrativeomraader.json",
+            "properties": {
+                "kodeverdi": {
+                    "type": "string"
+                },
+                "kodebeskrivelse": {
+                    "type": "string"
+                }
+            }
+        },
+        "landkode": {
+            "type": "object",
+            "description": "Kodeliste: no.ks.fiks.link.v1.kodelister.landkode.json",
+            "properties": {
+                "kodeverdi": {
+                    "type": "string"
+                },
+                "kodebeskrivelse": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "required": [
+        "adressetype"
+    ]
+}

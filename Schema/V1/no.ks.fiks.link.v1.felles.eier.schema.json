@@ -1,0 +1,35 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "no.ks.fiks.link.v1.felles.eier.schema.json",
+    "title": "Eier",
+    "definitions": {},
+    "type": "object",
+    "properties": {
+        "eierforhold": {
+            "type": "object",
+            "description": "Kodeliste: no.ks.fiks.link.v1.kodelister.eierforhold.json",
+            "properties": {
+                "kodeverdi": {
+                    "type": "string"
+                },
+                "kodebeskrivelse": {
+                    "type": "string"
+                }
+            }
+        },
+        "andel": {
+            "type": "object",
+            "description": "Kodeliste: no.ks.fiks.link.v1.kodelister.eierandel.json",
+            "properties": {
+                "kodeverdi": {
+                    "type": "string"
+                },
+                "kodebeskrivelse": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "required": [
+    ]
+}

@@ -1,0 +1,41 @@
+{
+  "protokollnavn": "no.ks.fiks.link",
+  "versjon": "v1",
+  "meldingstyper": [
+    {
+      "id": "no.ks.fiks.link.v1.innsyn.aktoerer.hent",
+      "beskrivelse": "",
+      "harPayload": true,
+      "payloadFilnavn": "payload.json",
+      "kanSvareMed": ["no.ks.fiks.plan.v2.innsyn.aktoerer.hent.resultat", "no.ks.fiks.plan.v2.feilmelding.ugyldigforespoersel", "no.ks.fiks.plan.v2.feilmelding.serverfeil", "no.ks.fiks.plan.v2.feilmelding.ikkefunnet"]
+    },
+    {
+      "id": "no.ks.fiks.link.v1.innsyn.aktoerer.hent.resultat",
+      "beskrivelse": "",
+      "harPayload": true,
+      "payloadFilnavn": "payload.json",
+      "erSvarPaa": ["no.ks.fiks.plan.v2.innsyn.aktoerer.hent"]
+    },
+    {
+      "id": "no.ks.fiks.link.v1.feilmelding.ugyldigforespoersel",
+      "beskrivelse": "",
+      "harPayload": true,
+      "payloadFilnavn": "feilmelding.json",
+      "erSvarPaa": []
+    },
+    {
+      "id": "no.ks.fiks.link.v1.feilmelding.serverfeil",
+      "beskrivelse": "",
+      "harPayload": true,
+      "payloadFilnavn": "feilmelding.json",
+      "erSvarPaa": []
+    },
+    {
+      "id": "no.ks.fiks.link.v1.feilmelding.ikkefunnet",
+      "beskrivelse": "",
+      "harPayload": true,
+      "payloadFilnavn": "feilmelding.json",
+      "erSvarPaa": []
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "no.ks.fiks.link.v1.felles.kontaktperson.schema.json",
+    "$ref": "no.ks.fiks.link.v1.felles.kontakt.schema.json",
+    "title": "Kontaktperson",
+    "definitions": {},
+    "type": "object",
+    "properties": {
+        "personid": {
+            "type": "string"
+        },
+        "etternavn": {
+            "type": "string"
+        },
+        "fornavn": {
+            "type": "string"
+        }
+    }
+}

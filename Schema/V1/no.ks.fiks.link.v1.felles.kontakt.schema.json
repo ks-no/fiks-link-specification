@@ -1,0 +1,21 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "no.ks.fiks.link.v1.felles.kontakt.schema.json",
+    "title": "Kontakt",
+    "definitions": {},
+    "type": "object",
+    "properties": {
+        "navn": {
+            "type": "string"
+        },
+        "adresser": {
+            "type": "array",
+            "items": {
+                "$ref": "no.ks.fiks.link.v1.felles.adresse.schema.json"
+            }
+        }
+    },
+    "required": [
+        "navn"
+    ]
+}

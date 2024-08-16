@@ -1,0 +1,12 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "no.ks.fiks.link.v1.dokument.hent.resultat.schema.json",
+    "title": "HentDokumentResultat",
+    "definitions": {},
+    "type": "object",
+    "properties": {
+        "dokument": {
+            "$ref": "no.ks.fiks.link.v1.felles.dokument.schema.json"
+        }
+    }
+}
