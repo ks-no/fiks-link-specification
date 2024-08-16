@@ -9,5 +9,40 @@ Link består altså av definerte lenker til systemet som fører til applikasjon 
 ## GI Link
 https://geointegrasjon.no/link/
 
+## Fiks Link
+
+_UNDER ARBEID_
+
+Dette er utkast og under arbeid.
+
+### Meldingstyper og skjema
+
+Json schemas er forsøkt modellert etter UML diagrammer fra GI Link, men med endringer der hvor det har virket fornuftig
+
+#### Meldingstyper / json schemas
+
+- `no.ks.fiks.link.v1.innsyn.dokument.hent.json`
+- `no.ks.fiks.link.v1.innsyn.dokument.hent.resultat.json` - Noen endringer i dokument objektet, som i andre protokoller. Det må nok gjøres flere endringer?.
+- `no.ks.fiks.link.v1.innsyn.naboliste.hent.json` 
+- `no.ks.fiks.link.v1.innsyn.naboliste.hent.resultat.json` - Endringer i struktur / feltnavn fra GI Link****
+- `no.ks.fiks.link.v1.innsyn.omraade.hent.json`
+- `no.ks.fiks.link.v1.innsyn.omraade.hent.resultat.json` - Returner "flate" slik den er definert i Fiks Plan?
+- `no.ks.fiks.link.v1.innsyn.punkt.hent.json`
+- `no.ks.fiks.link.v1.innsyn.punkt.hent.resultat.json` - Returnerer "posisjon" slik den er definert i Fiks Plan?
 
 
+#### Json schemas for datatyper brukt i meldingstypene
+
+- `no.ks.fiks.link.v1.felles.adresse.schema.json` - Bør endres til slik som i Fiks Plan / Fiks Arkiv?
+- `no.ks.fiks.link.v1.felles.dokument.schema.json` - Bør endres til slik som i Fiks Plan / Fiks Arkiv?
+- `no.ks.fiks.link.v1.felles.eiendom.schema.json` - Bør endres til slik som i Fiks Matrikkelføring?
+- `no.ks.fiks.link.v1.felles.eier.schema.json` 
+- `no.ks.fiks.link.v1.felles.flate.schema.json` - Kopiert fra Fiks Plan
+- `no.ks.fiks.link.v1.felles.kontakt.schema.json`
+- `no.ks.fiks.link.v1.felles.kontakteier.schema.json`
+- `no.ks.fiks.link.v1.felles.kontaktorganisasjon.schema.json`
+- `no.ks.fiks.link.v1.felles.kontaktperson.schema.json`
+- `no.ks.fiks.link.v1.felles.matrikkeleier.schema.json`
+- `no.ks.fiks.link.v1.felles.matrikkelnummer.schema.json` - Kopiert fra Fiks Plan
+- `no.ks.fiks.link.v1.felles.naboeiendom.schema.json` 
+- `no.ks.fiks.link.v1.felles.posisjon.schema.json` - Kopiert fra Fiks Plan
