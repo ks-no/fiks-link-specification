@@ -3,18 +3,60 @@
   "versjon": "v1",
   "meldingstyper": [
     {
-      "id": "no.ks.fiks.link.v1.innsyn.aktoerer.hent",
+      "id": "no.ks.fiks.link.v1.innsyn.dokument.hent",
       "beskrivelse": "",
       "harPayload": true,
       "payloadFilnavn": "payload.json",
-      "kanSvareMed": ["no.ks.fiks.plan.v2.innsyn.aktoerer.hent.resultat", "no.ks.fiks.plan.v2.feilmelding.ugyldigforespoersel", "no.ks.fiks.plan.v2.feilmelding.serverfeil", "no.ks.fiks.plan.v2.feilmelding.ikkefunnet"]
+      "kanSvareMed": ["no.ks.fiks.link.v1.innsyn.dokument.hent.resultat", "no.ks.fiks.link.v1.feilmelding.ugyldigforespoersel", "no.ks.fiks.link.v1.feilmelding.serverfeil", "no.ks.fiks.link.v1.feilmelding.ikkefunnet"]
     },
     {
-      "id": "no.ks.fiks.link.v1.innsyn.aktoerer.hent.resultat",
+      "id": "no.ks.fiks.link.v1.innsyn.dokument.hent.resultat",
       "beskrivelse": "",
       "harPayload": true,
       "payloadFilnavn": "payload.json",
-      "erSvarPaa": ["no.ks.fiks.plan.v2.innsyn.aktoerer.hent"]
+      "erSvarPaa": ["no.ks.fiks.link.v1.innsyn.dokument.hent"]
+    },
+    {
+      "id": "no.ks.fiks.link.v1.innsyn.naboliste.hent",
+      "beskrivelse": "",
+      "harPayload": true,
+      "payloadFilnavn": "payload.json",
+      "kanSvareMed": ["no.ks.fiks.link.v1.innsyn.naboliste.hent.resultat", "no.ks.fiks.link.v1.feilmelding.ugyldigforespoersel", "no.ks.fiks.link.v1.feilmelding.serverfeil", "no.ks.fiks.link.v1.feilmelding.ikkefunnet"]
+    },
+    {
+      "id": "no.ks.fiks.link.v1.innsyn.naboliste.hent.resultat",
+      "beskrivelse": "",
+      "harPayload": true,
+      "payloadFilnavn": "payload.json",
+      "erSvarPaa": ["no.ks.fiks.link.v1.innsyn.naboliste.hent"]
+    },
+    {
+      "id": "no.ks.fiks.link.v1.innsyn.omraade.hent",
+      "beskrivelse": "",
+      "harPayload": true,
+      "payloadFilnavn": "payload.json",
+      "kanSvareMed": ["no.ks.fiks.link.v1.innsyn.omraade.hent.resultat", "no.ks.fiks.link.v1.feilmelding.ugyldigforespoersel", "no.ks.fiks.link.v1.feilmelding.serverfeil", "no.ks.fiks.link.v1.feilmelding.ikkefunnet"]
+    },
+    {
+      "id": "no.ks.fiks.link.v1.innsyn.omraade.hent.resultat",
+      "beskrivelse": "",
+      "harPayload": true,
+      "payloadFilnavn": "payload.json",
+      "erSvarPaa": ["no.ks.fiks.link.v1.innsyn.omraade.hent"]
+    },
+    {
+      "id": "no.ks.fiks.link.v1.innsyn.punkt.hent",
+      "beskrivelse": "",
+      "harPayload": true,
+      "payloadFilnavn": "payload.json",
+      "kanSvareMed": ["no.ks.fiks.link.v1.innsyn.punkt.hent.resultat", "no.ks.fiks.link.v1.feilmelding.ugyldigforespoersel", "no.ks.fiks.link.v1.feilmelding.serverfeil", "no.ks.fiks.link.v1.feilmelding.ikkefunnet"]
+    },
+    {
+      "id": "no.ks.fiks.link.v1.innsyn.punkt.hent.resultat",
+      "beskrivelse": "",
+      "harPayload": true,
+      "payloadFilnavn": "payload.json",
+      "erSvarPaa": ["no.ks.fiks.link.v1.innsyn.punkt.hent"]
     },
     {
       "id": "no.ks.fiks.link.v1.feilmelding.ugyldigforespoersel",

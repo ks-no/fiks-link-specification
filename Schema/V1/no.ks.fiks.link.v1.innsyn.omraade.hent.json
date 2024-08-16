@@ -1,0 +1,15 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "no.ks.fiks.link.v1.omraade.hent.schema.json",
+    "title": "HentOmraade",
+    "definitions": {},
+    "type": "object",
+    "properties": {
+        "sesjonsId": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "sesjonsId"
+    ]
+}
