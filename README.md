@@ -15,6 +15,10 @@ _UNDER ARBEID_
 
 Dette er utkast og under arbeid.
 
+### Linker
+Foreløpig henviser vi til GI Link dokumentasjonen. Mer informasjon kommer her etter hvert.
+Men burde vi modernisert spesifikasjonen av lenkene til f.eks. en OpenAPI Spec?
+
 ### Meldingstyper og skjema
 
 Json schemas er forsøkt modellert etter UML diagrammer fra GI Link, men med endringer der hvor det har virket fornuftig
