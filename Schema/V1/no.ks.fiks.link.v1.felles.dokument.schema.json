@@ -54,9 +54,6 @@
         "dokumentnummer": {
             "type": "number"
         },
-        "tilknyttetRegistreringSom": {
-            "type": "string"
-        },
         "dokumentstatus": {
             "type": "object",
             "description": "Kodeliste: no.ks.fiks.link.v1.kodelister.dokumentstatus.json",
