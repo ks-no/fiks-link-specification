@@ -1,0 +1,78 @@
+@startuml
+class HentNabolisteResultat {
+    +hovedeiendom: Eiendom
+    +naboeiendommer: Naboeiendom[]
+}
+
+HentNabolisteResultat -- Eiendom
+HentNabolisteResultat *-- Naboeiendom
+
+class Eiendom {
+    +matrikkelnummer: Matrikkelnummer
+}
+
+Eiendom -- Matrikkelnummer
+
+class Matrikkelnummer {
+    +kommunenummer: string
+    +gaardsnummer: integer
+    +bruksnummer: integer
+    +festenummer: integer
+    +seksjonsnummer: integer
+}
+
+class Naboeiendom {
+    +eiere: Eier[]
+    +eiendomadresser: Adresse[]
+}
+
+class Naboeiendom extends Eiendom
+Naboeiendom *-- Adresse
+Naboeiendom *-- Eier
+
+class Adresse {
+    +adressetype: Adressetype<<Kode>>
+    +adresselinje1: string
+    +adresselinje2: string
+    +postadresse: Postadresse<<Kode>>
+    +landkode: Landkode<<Kode>>
+}
+
+class Eier {
+    +eierforhold: Eierforhold<<Kode>>
+    +andel: Andel<<Kode>>
+}
+
+class KontaktEier extends Eier
+class MatrikkelEier extends Eier
+
+class KontaktEier {
+    +kontakt: Kontakt
+}
+
+KontaktEier -- Kontakt
+
+class MatrikkelEier {
+    +matrikkelnummer: Matrikkelnummer
+}
+
+MatrikkelEier -- Matrikkelnummer
+
+class Kontakt {
+    +navn: string
+}
+
+class KontaktPerson {
+    +personid: string
+    +etternavn: string
+    +fornavn: string
+}
+
+class KontaktOrganisasjon {
+    +organisasjonsnummer: string
+}
+
+class KontaktPerson extends Kontakt
+class KontaktOrganisasjon extends Kontakt
+
+@enduml

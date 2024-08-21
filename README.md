@@ -9,6 +9,11 @@ Link består altså av definerte lenker til systemet som fører til applikasjon 
 ## GI Link
 https://geointegrasjon.no/link/
 
+### GI Link UML
+Hentet fra dokumentasjonen til GI Link:
+
+![](Dokumentasjon/GI-Link/GI-Link-uml.jpg)
+
 ## Fiks Link
 
 _UNDER ARBEID_
@@ -50,3 +55,30 @@ Json schemas er forsøkt modellert etter UML diagrammer fra GI Link, men med end
 - `no.ks.fiks.link.v1.felles.matrikkelnummer.schema.json` - Kopiert fra Fiks Plan
 - `no.ks.fiks.link.v1.felles.naboeiendom.schema.json` 
 - `no.ks.fiks.link.v1.felles.posisjon.schema.json` - Kopiert fra Fiks Plan
+
+### Hent punkt 
+
+**Skjema for meldingstypene:**
+- [`no.ks.fiks.link.v1.innsyn.punkt.hent.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.punkt.hent.json)
+- [`no.ks.fiks.link.v1.innsyn.punkt.hent.resultat.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.punkt.hent.resultat.json)
+
+##### Resultat
+
+Datastruktur i json-schemas. UML fra GI Link ble brukt som utgangspunkt.
+
+![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.punkt.hent.resultat/class-diagram.png)
+
+### Hent naboliste
+
+- [`no.ks.fiks.link.v1.innsyn.naboliste.hent.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.naboliste.hent.json)
+- [`no.ks.fiks.link.v1.innsyn.naboliste.hent.resultat.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.naboliste.hent.resultat.json) 
+
+##### Resultat
+
+Datastruktur i json-schemas. UML fra GI Link ble brukt som utgangspunkt.
+
+![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.naboliste.hent.resultat/class-diagram.png)
+
+
+
+

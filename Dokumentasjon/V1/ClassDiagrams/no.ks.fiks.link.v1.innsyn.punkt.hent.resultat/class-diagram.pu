@@ -1,0 +1,22 @@
+@startuml
+
+class HentPunktResultat {
+    +punkt: Punkt
+}
+
+HentPunktResultat -- Punkt
+
+class Punkt {
+    +type: string
+    +koordinater: number[2-*]
+    +koordinatsystem: Kode
+}
+
+Punkt -- Koordinatsystem
+
+class Koordinatsystem<<Kode>> {
+    +kodeverdi: string
+    +kodebeskrivelse: string
+}
+
+@enduml
