@@ -1,0 +1,8 @@
+@startuml
+
+class HentDokument {
+    +sesjonsId: string
+    +dokumentId: string
+}
+
+@enduml

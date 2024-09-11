@@ -80,5 +80,23 @@ Datastruktur i json-schemas. UML fra GI Link ble brukt som utgangspunkt.
 ![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.naboliste.hent.resultat/class-diagram.png)
 
 
+### Hent dokument
+
+**Skjema for meldingstypene:**
+- [`no.ks.fiks.link.v1.innsyn.dokument.hent.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.dokument.hent.json)
+- [`no.ks.fiks.link.v1.innsyn.dokument.hent.resultat.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.dokument.hent.resultat.json)
+
+##### Hent 
+
+![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.dokument.hent/class-diagram.png)
+
+##### Resultat
+
+Datastruktur i json-schemas. UML fra GI Link ble brukt som utgangspunkt sammen med dokument fra Fiks Arkiv
+
+![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.dokument.hent.resultat/class-diagram.png)
+
+
+
 
 
