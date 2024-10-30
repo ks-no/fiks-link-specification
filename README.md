@@ -1,4 +1,4 @@
-# fiks-link-specification
+# ![](KSDigital25.png) Kontrakter og dokumentasjon for Fiks Link
 Dette er en fornyelse av GI Link vha blant annet Fiks Protokoll.
 
 Link består av lenker som skal støttes av systemet som støtter Link.
@@ -95,6 +95,23 @@ Datastruktur i json-schemas. UML fra GI Link ble brukt som utgangspunkt.
 Datastruktur i json-schemas. UML fra GI Link ble brukt som utgangspunkt sammen med dokument fra Fiks Arkiv
 
 ![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.dokument.hent.resultat/class-diagram.png)
+
+
+### Hent omraade
+
+**Skjema for meldingstypene:**
+- [`no.ks.fiks.link.v1.innsyn.omraade.hent.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.omraade.hent.json)
+- [`no.ks.fiks.link.v1.innsyn.omraade.hent.resultat.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.omraade.hent.resultat.json)
+
+##### Hent
+
+![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.omraade.hent/class-diagram.png)
+
+##### Resultat
+
+Datastruktur i json-schemas. UML fra GI Link ble brukt som utgangspunkt sammen med dokument fra Fiks Arkiv
+
+![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.omraade.hent.resultat/class-diagram.png)
 
 
 

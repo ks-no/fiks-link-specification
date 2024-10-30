@@ -1,0 +1,17 @@
+@startuml
+
+class HentOmraadeResultat {
+    +omraade: Flate
+}
+
+HentOmraadeResultat -- Flate
+
+class Flate {
+    +type: string
+    +koordinater: array[number[]]
+    +koordinatsystem: Kode
+}
+
+Flate -- Kode
+
+@enduml

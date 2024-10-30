@@ -1,0 +1,7 @@
+@startuml
+
+class HentOmraade {
+    +sesjonsId: string
+}
+
+@enduml
