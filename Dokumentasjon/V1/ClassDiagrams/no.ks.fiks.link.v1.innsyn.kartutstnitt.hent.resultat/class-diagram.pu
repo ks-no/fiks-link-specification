@@ -1,0 +1,17 @@
+@startuml
+
+class HentKartutsnittResultat {
+    +kartutsnitt: Flate
+}
+
+HentKartutsnittResultat .. Flate
+
+class Flate {
+    +type: string
+    +koordinater: array[number[]]
+    +koordinatsystem: Kode
+}
+
+Flate .. Kode
+
+@enduml
