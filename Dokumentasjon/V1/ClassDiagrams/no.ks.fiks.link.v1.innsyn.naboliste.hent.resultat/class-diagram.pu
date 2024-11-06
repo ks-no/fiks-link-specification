@@ -4,14 +4,14 @@ class HentNabolisteResultat {
     +naboeiendommer: Naboeiendom[]
 }
 
-HentNabolisteResultat -- Eiendom
-HentNabolisteResultat *-- Naboeiendom
+HentNabolisteResultat .. Eiendom
+HentNabolisteResultat *.. Naboeiendom
 
 class Eiendom {
     +matrikkelnummer: Matrikkelnummer
 }
 
-Eiendom -- Matrikkelnummer
+Eiendom .. Matrikkelnummer
 
 class Matrikkelnummer {
     +kommunenummer: string
@@ -27,8 +27,9 @@ class Naboeiendom {
 }
 
 class Naboeiendom extends Eiendom
-Naboeiendom *-- Adresse
-Naboeiendom *-- Eier
+
+Naboeiendom *.. Adresse
+Naboeiendom *.. Eier
 
 class Adresse {
     +adressetype: Adressetype<<Kode>>
