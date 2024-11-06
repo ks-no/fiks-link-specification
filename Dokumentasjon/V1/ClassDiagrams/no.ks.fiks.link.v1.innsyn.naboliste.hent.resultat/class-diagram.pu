@@ -1,76 +1,77 @@
 @startuml
 class HentNabolisteResultat {
-    +hovedeiendom: Eiendom
-    +naboeiendommer: Naboeiendom[]
+    naboeiendommer: Eiendom[]
 }
 
 HentNabolisteResultat .. Eiendom
-HentNabolisteResultat *.. Naboeiendom
 
 class Eiendom {
-    +matrikkelnummer: Matrikkelnummer
+    * matrikkelnummer: Matrikkelnummer
+    eiere: Eier[]
+    eiendomadresser: Adresse[]
 }
+
+note top of Eiendom : Kan vi kutte ut å returnere eiere?
 
 Eiendom .. Matrikkelnummer
 
 class Matrikkelnummer {
-    +kommunenummer: string
-    +gaardsnummer: integer
-    +bruksnummer: integer
-    +festenummer: integer
-    +seksjonsnummer: integer
+    *kommunenummer: string
+    *gaardsnummer: integer
+    *bruksnummer: integer
+    festenummer: integer
+    seksjonsnummer: integer
 }
 
-class Naboeiendom {
-    +eiere: Eier[]
-    +eiendomadresser: Adresse[]
-}
 
-class Naboeiendom extends Eiendom
-
-Naboeiendom *.. Adresse
-Naboeiendom *.. Eier
+Eiendom *.. Adresse
+Eiendom *.. Eier
 
 class Adresse {
-    +adressetype: Adressetype<<Kode>>
-    +adresselinje1: string
-    +adresselinje2: string
-    +postadresse: Postadresse<<Kode>>
-    +landkode: Landkode<<Kode>>
+    adressetype: Adressetype<<Kode>>
+    adresselinje1: string
+    adresselinje2: string
+    postadresse: Postadresse<<Kode>>
+    landkode: Landkode<<Kode>>
 }
 
 class Eier {
-    +eierforhold: Eierforhold<<Kode>>
-    +andel: Andel<<Kode>>
+    *eierforhold: Eierforhold<<Kode>>
+    *andel: Andel<<Kode>>
 }
+
+note top of Eier : Eierforhold kommer fra matrikkel
 
 class KontaktEier extends Eier
 class MatrikkelEier extends Eier
 
 class KontaktEier {
-    +kontakt: Kontakt
+    *kontakt: Kontakt
 }
 
-KontaktEier -- Kontakt
+KontaktEier .. Kontakt
 
 class MatrikkelEier {
-    +matrikkelnummer: Matrikkelnummer
+    *matrikkelnummer: Matrikkelnummer
 }
 
-MatrikkelEier -- Matrikkelnummer
+MatrikkelEier .. Matrikkelnummer
 
 class Kontakt {
-    +navn: string
+    *navn: string
 }
+
+note top of Kontakt : Denne bør være lik som datamodellen i Fiks Arkiv
 
 class KontaktPerson {
-    +personid: string
-    +etternavn: string
-    +fornavn: string
+    *personid: string
+    *etternavn: string
+    *fornavn: string
 }
 
+
 class KontaktOrganisasjon {
-    +organisasjonsnummer: string
+    *organisasjonsnummer: string
 }
 
 class KontaktPerson extends Kontakt

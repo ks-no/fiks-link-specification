@@ -1,0 +1,9 @@
+@startuml
+
+class HentKartutsnitt {
+    +sesjonsId: string
+}
+
+note top of HentKartutsnitt : Dette er i stedet for hent dokument. \nHent kartutsnitt er resultatet av lag kartutsnitt
+
+@enduml

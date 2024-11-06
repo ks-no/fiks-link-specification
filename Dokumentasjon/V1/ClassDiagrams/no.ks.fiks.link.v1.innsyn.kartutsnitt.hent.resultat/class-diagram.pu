@@ -1,0 +1,9 @@
+@startuml
+
+class HentKartutsnittResultat {
+    +filnavn: string
+}
+
+note top of HentKartutsnittResultat : filnavn henviser til filen som kommer med i meldingen? \n Alternativt kan man droppe helt dette og bare si at payload i meldingen er kartutsnitt
+
+@enduml

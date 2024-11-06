@@ -1,19 +1,15 @@
 ﻿{
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "no.ks.fiks.link.v1.dokument.hent.schema.json",
-    "title": "HentDokument",
+    "$id": "no.ks.fiks.link.v1.kartutsnitt.hent.schema.json",
+    "title": "HentKartutsnitt",
     "definitions": {},
     "type": "object",
     "properties": {
         "sesjonsId": {
             "type": "string"
-        },
-        "dokumentId": {
-            "type": "string"
         }
     },
     "required": [
         "sesjonsId",
-        "dokumentId"
     ]
 }
