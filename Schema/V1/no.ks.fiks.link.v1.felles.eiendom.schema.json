@@ -7,6 +7,18 @@
     "properties": {
         "matrikkelnummer": {
             "$ref": "no.ks.fiks.link.v1.felles.matrikkelnummer.schema.json"
+        },
+        "eiere": {
+            "type": "array",
+            "items": {
+                "$ref": "no.ks.fiks.link.v1.felles.eier.schema.json"
+            }
+        },
+        "eiendomadresser": {
+            "type": "array",
+            "items": {
+                "$ref": "no.ks.fiks.link.v1.felles.adresse.schema.json"
+            }
         }
     }
 }

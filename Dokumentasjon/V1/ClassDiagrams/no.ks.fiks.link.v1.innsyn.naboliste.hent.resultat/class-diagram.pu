@@ -11,7 +11,8 @@ class Eiendom {
     eiendomadresser: Adresse[]
 }
 
-note top of Eiendom : Kan vi kutte ut å returnere eiere?
+note top of Eiendom : Man kan velge om man ønsker "eiere" og "eiendomadresser" i resultatet med parameter i LINK adressen.
+
 
 Eiendom .. Matrikkelnummer
 

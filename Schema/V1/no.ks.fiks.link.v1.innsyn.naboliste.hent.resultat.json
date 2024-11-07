@@ -5,13 +5,10 @@
     "definitions": {},
     "type": "object",
     "properties": {
-        "hovedeiendom": {
-            "$ref:" : "no.ks.fiks.link.v1.felles.eiendom.schema.json"
-        },
         "naboeiendommer": {
             "type": "array",
             "items": {
-                "$ref": "no.ks.fiks.link.v1.felles.naboeiendom.schema.json"
+                "$ref": "no.ks.fiks.link.v1.felles.eiendom.schema.json"
             }
         }
     }

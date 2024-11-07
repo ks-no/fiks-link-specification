@@ -37,9 +37,13 @@ System A (f.eks. sakssystemet) benytter funksjonen ved å kalle system B (vanlig
 
 En kan benytte alle Vis-funksjoner for å zoome inn i kartet
 
-Eksempel på LINK
+Man kan velge om man ønsker tilbake `Eier` og `Adresser` i resultatet med parameter i LINK adressen.
 
-http://www.system.no/side.html?funksjon=VisEiendom&kommunenummer=0123&gaardsnummer=1&bruksnummer=2&festenummer=0&seksjonsnummer=1&hint=LagNaboliste&sesjon=A12345678901&link2=http://www.systemB.no/naboliste.html? sesjon=A12345678901
+Eksempel på LINK:
+
+http://www.system.no/side.html?funksjon=VisEiendom&kommunenummer=0123&gaardsnummer=1&bruksnummer=2&festenummer=0&seksjonsnummer=1&hint=LagNaboliste&sesjon=A12345678901&link2=http://www.systemB.no/naboliste.html?sesjon=A12345678901
+
+
 
 #### LagKartutsnitt
 Lager et kartutsnitt som så kan hentes vha `no.ks.fiks.link.v1.innsyn.kartutsnitt.hent` melding.
