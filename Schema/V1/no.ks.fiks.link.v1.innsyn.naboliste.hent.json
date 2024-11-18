@@ -1,6 +1,6 @@
 ﻿{
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "no.ks.fiks.link.v1.naboliste.hent.schema.json",
+    "$id": "no.ks.fiks.link.innsyn.v1.naboliste.hent.schema.json",
     "title": "HentNaboliste",
     "definitions": {},
     "type": "object",

@@ -1,0 +1,19 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "no.ks.fiks.link.v1.felles.organisasjonid.schema.json",
+    "title": "OrganisasjonID",
+    "definitions": {},
+    "type": "object",
+    "properties": {
+        "landkode": {
+            "type": "string"
+        },
+        "identifikator": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "landkode",
+        "identifikator"
+    ]
+}

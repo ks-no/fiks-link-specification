@@ -17,38 +17,24 @@
                 }
             }
         },
-        "adresselinje1": {
+        "adresse": {
             "type": "string"
         },
-        "adresselinje2": {
+        "postnummer": {
             "type": "string"
         },
-        "postadresse": {
-            "type": "object",
-            "description": "Kodeliste: no.ks.fiks.link.v1.kodelister.postadministrativeomraader.json",
-            "properties": {
-                "kodeverdi": {
-                    "type": "string"
-                },
-                "kodebeskrivelse": {
-                    "type": "string"
-                }
-            }
+        "poststed": {
+            "type": "string"
         },
         "landkode": {
-            "type": "object",
-            "description": "Kodeliste: no.ks.fiks.link.v1.kodelister.landkode.json",
-            "properties": {
-                "kodeverdi": {
-                    "type": "string"
-                },
-                "kodebeskrivelse": {
-                    "type": "string"
-                }
-            }
+            "type": "string"
         }
     },
     "required": [
-        "adressetype"
+        "adressetype",
+        "adresse",
+        "postnummer",
+        "poststed",
+        "landkode"
     ]
 }

@@ -8,11 +8,17 @@
         "navn": {
             "type": "string"
         },
-        "adresser": {
-            "type": "array",
-            "items": {
-                "$ref": "no.ks.fiks.link.v1.felles.adresse.schema.json"
-            }
+        "personid": {
+            "$ref": "no.ks.fiks.link.v1.felles.personid.schema.json"
+        },
+        "etternavn": {
+            "type": "string"
+        },
+        "fornavn": {
+            "type": "string"
+        },
+        "organisasjonsnummer": {
+            "$ref": "no.ks.fiks.link.v1.felles.organisasjonid.schema.json"
         }
     },
     "required": [

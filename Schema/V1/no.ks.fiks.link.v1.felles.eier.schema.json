@@ -28,6 +28,12 @@
                     "type": "string"
                 }
             }
+        },
+        "kontakt": {
+            "$ref": "no.ks.fiks.link.v1.felles.kontakt.schema.json"
+        },
+        "matrikkelnummer": {
+            "$ref": "no.ks.fiks.link.v1.felles.matrikkelnummer.schema.json"
         }
     },
     "required": [

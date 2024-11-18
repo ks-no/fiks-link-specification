@@ -1,6 +1,6 @@
 ﻿{
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "no.ks.fiks.link.v1.kartutsnitt.hent.resultat.schema.json",
+    "$id": "no.ks.fiks.link.v1.innsyn.kartutsnitt.hent.resultat.schema.json",
     "title": "HentKartutsnittResultat",
     "definitions": {},
     "type": "object",

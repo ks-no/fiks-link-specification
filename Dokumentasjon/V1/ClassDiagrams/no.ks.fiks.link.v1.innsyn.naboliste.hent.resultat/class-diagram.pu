@@ -30,52 +30,46 @@ Eiendom *.. Eier
 
 class Adresse {
     adressetype: Adressetype<<Kode>>
-    adresselinje1: string
-    adresselinje2: string
-    postadresse: Postadresse<<Kode>>
-    landkode: Landkode<<Kode>>
+    adresse: string
+    postnummer: string
+    poststed: string
+    landkode: string
 }
 
 class Eier {
     *eierforhold: Eierforhold<<Kode>>
     *andel: Andel<<Kode>>
+    kontakt: Kontakt
+    matrikkelnummer: Matrikkelnummer
 }
 
-note top of Eier : Eierforhold kommer fra matrikkel
+note top of Eier : Eierforhold kommer fra matrikkel.\nEier har enten kontakt eller matrikkelnummer registrert,\nog er ut i fra det enten en "matrikkeleier" eller en "kontakteier"
 
-class KontaktEier extends Eier
-class MatrikkelEier extends Eier
 
-class KontaktEier {
-    *kontakt: Kontakt
-}
-
-KontaktEier .. Kontakt
-
-class MatrikkelEier {
-    *matrikkelnummer: Matrikkelnummer
-}
-
-MatrikkelEier .. Matrikkelnummer
+Eier .. Kontakt
+Eier .. Matrikkelnummer
 
 class Kontakt {
     *navn: string
+    personid: PersonID
+    etternavn: string
+    fornavn: string
+    organisasjonid: OrganisasjonID
 }
 
-note top of Kontakt : Denne bør være lik som datamodellen i Fiks Arkiv
+Kontakt .. PersonID
+Kontakt .. OrganisasjonID
 
-class KontaktPerson {
-    *personid: string
-    *etternavn: string
-    *fornavn: string
+class PersonID {
+    *landkode: string
+    *identifikator: string
 }
 
-
-class KontaktOrganisasjon {
-    *organisasjonsnummer: string
+class OrganisasjonID {
+    *landkode: string
+    *identifikator: string
 }
 
-class KontaktPerson extends Kontakt
-class KontaktOrganisasjon extends Kontakt
+note top of Kontakt : Denne bør være lik som datamodellen i Fiks Arkiv.\nEnten er persondata eller organisasjonsnummer fylt ut.\nUt i fra dette er det enten en kontaktperson eller en kontaktorganisasjon.
 
 @enduml
