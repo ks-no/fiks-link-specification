@@ -7,9 +7,17 @@
     "properties": {
         "sesjonsId": {
             "type": "string"
+        },
+        "inkluderEiere": {
+            "type": "boolean"
+        },
+        "inkluderEiendomadresser": {
+            "type": "boolean"
         }
     },
     "required": [
-        "sesjonsId"
+        "sesjonsId",
+        "inkluderEiere",
+        "inkluderEiendomadresser"
     ]
 }

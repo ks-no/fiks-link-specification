@@ -1,10 +1,10 @@
 @startuml
 
-class HentOmraadeResultat {
+class HentFlateResultat {
     +omraade: Flate
 }
 
-HentOmraadeResultat -- Flate
+HentFlateResultat -- Flate
 
 class Flate {
     +type: string

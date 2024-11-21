@@ -1,18 +1,18 @@
 @startuml
 
-class HentPunktResultat {
-    +punkt: Punkt
+class HentPosisjonResultat {
+    +punkt: Posisjon
 }
 
-HentPunktResultat -- Punkt
+HentPosisjonResultat -- Posisjon
 
-class Punkt {
+class Posisjon {
     +type: string
     +koordinater: number[2-*]
     +koordinatsystem: Kode
 }
 
-Punkt -- Koordinatsystem
+Posisjon -- Koordinatsystem
 
 class Koordinatsystem<<Kode>> {
     +kodeverdi: string

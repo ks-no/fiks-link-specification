@@ -1,6 +1,6 @@
 @startuml
 
-class HentOmraade {
+class HentFlate {
     +sesjonsId: string
 }
 

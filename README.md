@@ -28,7 +28,7 @@ Link-tjenestene er tjenestene som enten viser noe eller som faktisk produserer n
 
 Link-tjenestene er som følger fra gammel standard:
 
-#### LagNaboliste
+#### LagNaboliste - hent naboliste
 Lager en naboliste som så kan hentes vha `no.ks.fiks.link.v1.innsyn.naboliste.hent` melding.
 
 Funksjon som aktiverer et annet system slik at brukeren kan etablere en liste over naboer for en gitt eiendom og returnere listen til sitt opprinnelige system.
@@ -45,8 +45,8 @@ http://www.system.no/side.html?funksjon=VisEiendom&kommunenummer=0123&gaardsnumm
 
 
 
-#### LagKartutsnitt
-Lager et kartutsnitt som så kan hentes vha `no.ks.fiks.link.v1.innsyn.kartutsnitt.hent` melding.
+#### LagKartutsnitt - hent kartutsnitt
+Lager et kartutsnitt som så kan hentes vha `no.ks.fiks.link.v1.innsyn.kartutsnitt.hent` melding. Kartutsnittet kommer i form av et dokument.
 
 Funksjon som aktiverer et annet system slik at brukeren kan få et kartsnitt rundt en gitt eiendom og returnere kartet som et dokument til sitt opprinnelige system.
 
@@ -58,8 +58,10 @@ Eksempel på LINK
 
 http://www.system.no/side.html?funksjon=VisPlan&kommunenummer=0123&planidentifikasjon=R0118AP&hint=LagKartutsnitt&sesjon=A12345678901&link2=http://www.systemB.no/kart.html?sesjon=A12345678901
 
-#### LagPunkt
-Lager et punkt som så kan hentes vha `no.ks.fiks.link.v1.innsyn.punkt.hent` melding.
+#### LagPunkt - hent posisjon
+Lager et punkt (`posisjon`) som så kan hentes vha `no.ks.fiks.link.v1.innsyn.posisjon.hent` melding.
+Vi har valgt å bruke det mer korrekte begrepet `posisjon` for datatypen som også brukes i andre protokoller.
+
 
 Funksjon som aktiverer et GIS system slik at brukeren kan registrere en koordinat i kartbildet og returnere et punktobjekt til sitt opprinnelige system.
 
@@ -72,8 +74,9 @@ Eksempel på LINK
 http://www.system.no/side.html?funksjon=VisAdresse&kommunenummer=0123& adressenavn=Storgata&nummer=2&bokstav=A&hint=LagPunkt&sesjon=A12345678901&link2=http://www.systemB.no/punkt.html?sesjon=A12345678901
 
 
-#### LagOmraade
-Lager et omraade som så kan hentes vha `no.ks.fiks.link.v1.innsyn.omraade.hent` melding.
+#### LagOmraade - hent flate
+Lager et omraade (`flate`) som så kan hentes vha `no.ks.fiks.link.v1.innsyn.flate.hent` melding. 
+Vi har valgt å bruke det mer korrekte begrepet `flate` for datatypen som også brukes i andre protokoller.
 
 Funksjon som aktiverer et GIS system slik at brukeren kan registrere et område i kartbildet og returnere et områdeobjekt til sitt opprinnelige system.
 
@@ -93,14 +96,14 @@ Json schemas er forsøkt modellert etter UML diagrammer fra GI Link, men med end
 
 #### Meldingstyper / json schemas
 
-- `no.ks.fiks.link.v1.innsyn.kartutsnitt.hent.json`
-- `no.ks.fiks.link.v1.innsyn.kartutsnitt.hent.resultat.json` - Droppet dokument som navn og refererer til LagKartutsnitt funksjonen
-- `no.ks.fiks.link.v1.innsyn.naboliste.hent.json` 
-- `no.ks.fiks.link.v1.innsyn.naboliste.hent.resultat.json` - Endringer i struktur / feltnavn fra GI Link****
-- `no.ks.fiks.link.v1.innsyn.omraade.hent.json`
-- `no.ks.fiks.link.v1.innsyn.omraade.hent.resultat.json` - Returner "flate" slik den er definert i Fiks Plan?
-- `no.ks.fiks.link.v1.innsyn.punkt.hent.json`
-- `no.ks.fiks.link.v1.innsyn.punkt.hent.resultat.json` - Returnerer "posisjon" slik den er definert i Fiks Plan?
+- `no.ks.fiks.link.v1.innsyn.kartutsnitt.hent.schema.json`
+- `no.ks.fiks.link.v1.innsyn.kartutsnitt.hent.resultat.schema.json` - Droppet dokument som navn og refererer til LagKartutsnitt funksjonen
+- `no.ks.fiks.link.v1.innsyn.naboliste.hent.schema.json` 
+- `no.ks.fiks.link.v1.innsyn.naboliste.hent.resultat.schema.json` - Endringer i struktur / feltnavn fra GI Link****
+- `no.ks.fiks.link.v1.innsyn.flate.hent.schema.json`
+- `no.ks.fiks.link.v1.innsyn.flate.hent.resultat.schema.json` - Returner "flate" slik den er definert i Fiks Plan?
+- `no.ks.fiks.link.v1.innsyn.posisjon.hent.schema.json`
+- `no.ks.fiks.link.v1.innsyn.posisjon.hent.resultat.schema.json` - Returnerer "posisjon" slik den er definert i Fiks Plan?
 
 
 #### Json schemas for datatyper brukt i meldingstypene
@@ -110,29 +113,27 @@ Json schemas er forsøkt modellert etter UML diagrammer fra GI Link, men med end
 - `no.ks.fiks.link.v1.felles.eier.schema.json` 
 - `no.ks.fiks.link.v1.felles.flate.schema.json` - Kopiert fra Fiks Plan
 - `no.ks.fiks.link.v1.felles.kontakt.schema.json`
-- `no.ks.fiks.link.v1.felles.kontakteier.schema.json`
-- `no.ks.fiks.link.v1.felles.kontaktorganisasjon.schema.json`
-- `no.ks.fiks.link.v1.felles.kontaktperson.schema.json`
-- `no.ks.fiks.link.v1.felles.matrikkeleier.schema.json`
+- `no.ks.fiks.link.v1.felles.organisasjonid.schema.json`
+- `no.ks.fiks.link.v1.felles.personid.schema.json`
 - `no.ks.fiks.link.v1.felles.matrikkelnummer.schema.json` - Kopiert fra Fiks Plan
 - `no.ks.fiks.link.v1.felles.posisjon.schema.json` - Kopiert fra Fiks Plan
 
 ### Hent punkt 
 
 **Skjema for meldingstypene:**
-- [`no.ks.fiks.link.v1.innsyn.punkt.hent.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.punkt.hent.json)
-- [`no.ks.fiks.link.v1.innsyn.punkt.hent.resultat.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.punkt.hent.resultat.json)
+- [`no.ks.fiks.link.v1.innsyn.posisjon.hent.schema.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.posisjon.hent.schema.json)
+- [`no.ks.fiks.link.v1.innsyn.punkt.hent.resultat.schema.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.posisjon.hent.resultat.schema.json)
 
 ##### Resultat
 
 Datastruktur i json-schemas. UML fra GI Link ble brukt som utgangspunkt.
 
-![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.punkt.hent.resultat/class-diagram.png)
+![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.posisjon.hent.resultat/class-diagram.png)
 
 ### Hent naboliste
 
-- [`no.ks.fiks.link.v1.innsyn.naboliste.hent.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.naboliste.hent.json)
-- [`no.ks.fiks.link.v1.innsyn.naboliste.hent.resultat.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.naboliste.hent.resultat.json) 
+- [`no.ks.fiks.link.v1.innsyn.naboliste.hent.schema.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.naboliste.hent.schema.json)
+- [`no.ks.fiks.link.v1.innsyn.naboliste.hent.resultat.schema.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.naboliste.hent.resultat.schema.json) 
 
 ##### Resultat
 
@@ -144,8 +145,8 @@ Datastruktur i json-schemas. UML fra GI Link ble brukt som utgangspunkt.
 ### Hent kartutsnitt
 
 **Skjema for meldingstypene:**
-- [`no.ks.fiks.link.v1.innsyn.kartutsnitt.hent.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.kartutsnitt.hent.json)
-- [`no.ks.fiks.link.v1.innsyn.kartutsnitt.hent.resultat.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.dokument.hent.resultat.json)
+- [`no.ks.fiks.link.v1.innsyn.kartutsnitt.hent.schema.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.kartutsnitt.hent.schema.json)
+- [`no.ks.fiks.link.v1.innsyn.kartutsnitt.hent.resultat.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.dokument.hent.resultat.schema.json)
 
 ##### Hent 
 
@@ -161,18 +162,18 @@ Viser til fil som kommer med som payload i resultat meldingen
 ### Hent omraade
 
 **Skjema for meldingstypene:**
-- [`no.ks.fiks.link.v1.innsyn.omraade.hent.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.omraade.hent.json)
-- [`no.ks.fiks.link.v1.innsyn.omraade.hent.resultat.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.omraade.hent.resultat.json)
+- [`no.ks.fiks.link.v1.innsyn.flate.hent.schema.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.flate.hent.schema.json)
+- [`no.ks.fiks.link.v1.innsyn.flate.hent.resultat.schema.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.omraade.hent.resultat.schema.json)
 
 ##### Hent
 
-![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.omraade.hent/class-diagram.png)
+![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.flate.hent/class-diagram.png)
 
 ##### Resultat
 
 Datastruktur i json-schemas. UML fra GI Link ble brukt som utgangspunkt sammen med dokument fra Fiks Arkiv
 
-![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.omraade.hent.resultat/class-diagram.png)
+![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.flate.hent.resultat/class-diagram.png)
 
 
 

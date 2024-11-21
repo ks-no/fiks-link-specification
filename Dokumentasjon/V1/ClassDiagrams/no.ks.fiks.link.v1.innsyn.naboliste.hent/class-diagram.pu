@@ -1,7 +1,9 @@
 @startuml
 
 class HentNaboliste {
-    +sesjonsId: string
+    *sesjonsId: string
+    *inkluderEiere: boolean
+    *inkluderEiendomadresser: boolean
 }
 
 @enduml

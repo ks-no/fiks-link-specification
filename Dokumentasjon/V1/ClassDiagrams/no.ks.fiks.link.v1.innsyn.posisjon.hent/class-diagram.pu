@@ -1,0 +1,7 @@
+@startuml
+
+class HentPosisjon {
+    +sesjonsId: string
+}
+
+@enduml

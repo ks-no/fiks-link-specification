@@ -1,7 +1,7 @@
 ﻿{
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "no.ks.fiks.link.v1.innsyn.punkt.hent.resultat.schema.json",
-    "title": "HentPunktResultat",
+    "$id": "no.ks.fiks.link.v1.innsyn.posisjon.hent.resultat.schema.json",
+    "title": "HentPosisjonResultat",
     "definitions": {},
     "type": "object",
     "properties": {
