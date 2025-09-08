@@ -1,0 +1,11 @@
+@startuml
+
+participant Fagsystem as Fagsystem
+participant Kartsystem as Kartsystem
+
+Fagsystem --> Kartsystem : Bruker blir sendt til kartsystem med link2 parameter \n og sesjonID
+Kartsystem --> Fagsystem : Bruker er ferdig og kartsystem sender \n bruker tilbake vha link2 parameter
+Fagsystem -> Kartsystem : Fagsystem henter naboliste produsert av kartsystem\n vha sesjonID som protokoll hent-melding via Fiks-IO
+Kartsystem -> Fagsystem : Kartsystem sender tilbake naboliste
+
+@enduml

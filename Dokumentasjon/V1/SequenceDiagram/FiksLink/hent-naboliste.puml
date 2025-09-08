@@ -1,0 +1,11 @@
+@startuml
+
+participant Fagsystem as Fagsystem
+participant Kartsystem as Kartsystem
+
+Fagsystem --> Kartsystem : Bruker blir sendt til kartsystem med parameterene sesjonID og \nFiks-IO konto-id for Fagsystem som meldinger skal sendes tilbake til
+Kartsystem --> Kartsystem : Bruker er ferdig 
+Fagsystem <- Kartsystem : Kartsystem sender naboliste til fagsystem som protokoll send-melding\n vha konto-id sendt i første steg sammen med sesjonID i payload
+Kartsystem <- Fagsystem : Fagsystem sender mottatt-melding tilbake til Kartsystem
+
+@enduml
