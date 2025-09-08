@@ -23,4 +23,4 @@ Parameteren sesjonID brukes for å identifisere det som produseres i Kartsystem 
 
 Når bruker er ferdig å jobbe i Kartsystem så vil Kartsystem sende det som er produsert (nabolisten) til Fagsystem som Fiks Protokoll melding, med sesjonID i payload.
 
-![gi-link](GILink/hent-naboliste.png)
+![gi-link](FiksLink/hent-naboliste.png)
