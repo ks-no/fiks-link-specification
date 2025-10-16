@@ -20,75 +20,124 @@ _UNDER ARBEID_
 
 Dette er utkast og under arbeid.
 
+### Sekvensdiagram
+#### GI Link - dialog mellom fagsystem og kartystem
+
+Slik dialogen var i GI Link for tjenesten _hent naboliste_ og resten av tjenestene.
+Kartsystemet sender bruker tilbake til angitt url i link2 parameter og venter på hent naboliste request før den returnerer resultat.
+
+![](Dokumentasjon/V1/SequenceDiagram/GILink/hent-naboliste.png)
+
+#### Fiks Link - dialog mellom fagsystem og kartystem
+
+Slik vi ser for oss at dialogen blir i nye Fiks Link for tjenesten _lag naboliste_ og resten av tjenestene. 
+Den store forskjellen er at linken (url med parametere) kartsystemet støtter ikke tar inn en link2 url som parameter, og i stedet sender melding tilbake med en gang til fagsystem med resultat.
+
+![](Dokumentasjon/V1/SequenceDiagram/FiksLink/hent-naboliste.png)
+
+
 ### Linker
-Foreløpig henviser vi til GI Link dokumentasjonen. Mer informasjon kommer her etter hvert.
-Men burde vi modernisert spesifikasjonen av lenkene til f.eks. en OpenAPI Spec?
 
-Link-tjenestene er tjenestene som enten viser noe eller som faktisk produserer noe i systemet slik at det etterpå kan hentes ved hjelp av en "hent-melding".
+Link-tjenestene er tjenestene som enten viser noe eller som faktisk produserer noe i systemet.
+Så vil karttjenesten levere resultatet til fagsystemet når bruker er ferdig.
 
-Link-tjenestene er som følger fra gammel standard:
+#### LagNaboliste - send naboliste
 
-#### LagNaboliste - hent naboliste
-Lager en naboliste som så kan hentes vha `no.ks.fiks.link.v1.innsyn.naboliste.hent` melding.
+Tjenesten gjør at brukeren kan etablere en liste over naboer for en gitt eiendom og returnere listen tilbake til opprinnelige system vha `no.ks.fiks.link.v1.innsyn.naboliste.send` melding.
 
-Funksjon som aktiverer et annet system slik at brukeren kan etablere en liste over naboer for en gitt eiendom og returnere listen til sitt opprinnelige system.
-
-System A (f.eks. sakssystemet) benytter funksjonen ved å kalle system B (vanligvis GIS) ved å benytte LINK. GIS-systemet åpnes med aktuelle eiendom i kartbildet og med forslag til naboer. Brukeren får kontroll i GIS-systemets funksjonalitet og bestemmer interaktivt hvilke eiendommer som skal inngå i listen. GIS-systemet lager listen og lagrer den lokalt i GIS-systemet. Etter at Sakssystemet får tilbake kontrollen (returadresse oppgitt ved LINK2), kan nabolisten hentes ved meldingen HentNaboliste
+System A (f.eks. sakssystemet) benytter funksjonen ved å kalle system B (vanligvis GIS) ved å benytte LINK. GIS-systemet åpnes med aktuelle eiendom i kartbildet og med forslag til naboer. Brukeren får kontroll i GIS-systemets funksjonalitet og bestemmer interaktivt hvilke eiendommer som skal inngå i listen. GIS-systemet lager listen og sendes resultatet tilbake ved meldingen SendNaboliste til angitt `kontoID`.
 
 En kan benytte alle Vis-funksjoner for å zoome inn i kartet
 
-Man kan velge om man ønsker tilbake `Eier` og `Adresser` i resultatet med parameter i LINK adressen.
+##### Url - med eksempel
+Parameterene sesjonID og kontoID er nødvendige for å vise hvilken sesjon data tilhører og hvilken konto melding skal sendes tilbake til. SesjonID legges til i meldingen som GIS-systemet sender tilbake.
 
-Eksempel på LINK:
+http://www.system.no/side.html?funksjon=VisEiendom&kommunenummer=0123&gaardsnummer=1&bruksnummer=2&festenummer=0&seksjonsnummer=1&hint=LagNaboliste&sesjonID=A12345678901&kontoID=A12345678901&inkluderEiere=false&inkluderAdresse=false
 
-http://www.system.no/side.html?funksjon=VisEiendom&kommunenummer=0123&gaardsnummer=1&bruksnummer=2&festenummer=0&seksjonsnummer=1&hint=LagNaboliste&sesjon=A12345678901&link2=http://www.systemB.no/naboliste.html?sesjon=A12345678901
+**Parametere:**
+- funksjon = VisEiendom
+- kommunenummer
+- gaardsnummer
+- bruksnummer
+- festenummer
+- seksjonsnummer
+- hint = LagNaboliste
+- sesjonID
+- kontoID
+- inkluderEiere -> inkluder eiere i melding tilbake fra kartsystem
+- inkluderAdresse -> inkluder adresser i melding tilbake fra kartsystem 
 
 
-
-#### LagKartutsnitt - hent kartutsnitt
-Lager et kartutsnitt som så kan hentes vha `no.ks.fiks.link.v1.innsyn.kartutsnitt.hent` melding. Kartutsnittet kommer i form av et dokument.
+#### LagKartutsnitt - send kartutsnitt
+Lager et kartutsnitt som så kartsystemet sender vha `no.ks.fiks.link.v1.innsyn.kartutsnitt.send` melding. Kartutsnittet kommer i form av et dokument.
 
 Funksjon som aktiverer et annet system slik at brukeren kan få et kartsnitt rundt en gitt eiendom og returnere kartet som et dokument til sitt opprinnelige system.
 
-System A (f.eks. SAK-systemet) benytter funksjonen ved å kommunisere med system B (vanligvis GIS).  GIS-systemet startes som LINK med parametrene som identifiserer aktuelle eiendom. Brukeren får kontroll i GIS-systemets funksjonalitet og bestemmer interaktivt kartutsnittets størrelse. GIS-systemet lager kartet og lagrer det lokalt i GIS-systemet. Etter at Sakssystemet får tilbake kontrollen (returadresse oppgitt ved LINK2), kan kartet hentes ved en melding (HentKartutsnitt)
+System A (f.eks. SAK-systemet) benytter funksjonen ved å kommunisere med system B (vanligvis GIS).  GIS-systemet startes som LINK med parametrene som identifiserer aktuelle eiendom. Brukeren får kontroll i GIS-systemets funksjonalitet og bestemmer interaktivt kartutsnittets størrelse. GIS-systemet lager kartet og sender det tilbake til angitt `kontoID`.
 
 En kan benytte alle Vis-funksjoner for å zoome inn i kartet
 
-Eksempel på LINK
+##### Url - med eksempel
 
-http://www.system.no/side.html?funksjon=VisPlan&kommunenummer=0123&planidentifikasjon=R0118AP&hint=LagKartutsnitt&sesjon=A12345678901&link2=http://www.systemB.no/kart.html?sesjon=A12345678901
+http://www.system.no/side.html?funksjon=VisPlan&kommunenummer=0123&planidentifikasjon=R0118AP&hint=LagKartutsnitt&sesjonID=A12345678901&kontoID=123243245
 
-#### LagPunkt - hent posisjon
-Lager et punkt (`posisjon`) som så kan hentes vha `no.ks.fiks.link.v1.innsyn.posisjon.hent` melding.
+**Parametere:**
+- funksjon = VisPlan
+- kommunenummer
+- planidentifikasjon
+- hint = LagKartutsnitt
+- sesjonID
+- kontoID
+
+#### LagPunkt - send posisjon
+Lager et punkt (`posisjon`) som så sendes vha `no.ks.fiks.link.v1.innsyn.posisjon.send` melding.
+
 Vi har valgt å bruke det mer korrekte begrepet `posisjon` for datatypen som også brukes i andre protokoller.
 
+Funksjon som aktiverer et GIS system slik at brukeren kan registrere en koordinat i kartbildet og kartsystemet returnerer et punktobjekt i melding til angitt `kontoID`
 
-Funksjon som aktiverer et GIS system slik at brukeren kan registrere en koordinat i kartbildet og returnere et punktobjekt til sitt opprinnelige system.
-
-System A (f.eks. SAK-systemet) benytter funksjonen ved å kommunisere med system B (vanligvis GIS).  GIS-systemet overtar kontroll gjennom en LINK og brukeren angir et punkt i GIS systemet interaktivt. GIS-systemet lager koordinat lokalt i GIS-systemet. Etter at Sakssystemet får tilbake kontrollen (returadresse oppgitt ved LINK2), kan punktet hentes ved en melding (HentPunkt)
+System A (f.eks. SAK-systemet) benytter funksjonen ved å kommunisere med system B (vanligvis GIS).  GIS-systemet overtar kontroll gjennom en LINK og brukeren angir et punkt i GIS systemet interaktivt. GIS-systemet lager koordinat lokalt og sender tilbake til angitt `kontoID`. 
 
 En kan benytte alle Vis-funksjoner for å zoome inn i kartet
 
-Eksempel på LINK
+##### Url - med eksempel
 
-http://www.system.no/side.html?funksjon=VisAdresse&kommunenummer=0123& adressenavn=Storgata&nummer=2&bokstav=A&hint=LagPunkt&sesjon=A12345678901&link2=http://www.systemB.no/punkt.html?sesjon=A12345678901
+http://www.system.no/side.html?funksjon=VisAdresse&kommunenummer=0123&adressenavn=Storgata&nummer=2&bokstav=A&hint=LagPunkt&sesjonID=A12345678901&kontoID=123145145
 
+**Parametere:**
+- funksjon = VisAdresse
+- kommunenummer
+- adressenavn
+- nummer
+- bokstav
+- hint = LagPunkt
+- sesjonID
+- kontoID
 
-#### LagOmraade - hent flate
-Lager et omraade (`flate`) som så kan hentes vha `no.ks.fiks.link.v1.innsyn.flate.hent` melding. 
+#### LagOmraade - send flate
+Lager et omraade (`flate`) som så sendes tilbake vha `no.ks.fiks.link.v1.innsyn.flate.send` melding. 
 Vi har valgt å bruke det mer korrekte begrepet `flate` for datatypen som også brukes i andre protokoller.
 
 Funksjon som aktiverer et GIS system slik at brukeren kan registrere et område i kartbildet og returnere et områdeobjekt til sitt opprinnelige system.
 
-System A (f.eks. SAK-systemet) benytter funksjonen ved å kommunisere med system B (vanligvis GIS).  GIS-systemet overtar kontroll gjennom en LINK og brukeren angir et område i GIS systemet interaktivt. GIS-systemet lager koordinater lokalt i GIS-systemet. Etter at Sakssystemet får tilbake kontrollen (returadresse oppgitt ved LINK2), kan området hentes ved en melding (HentOmraade)
+System A (f.eks. SAK-systemet) benytter funksjonen ved å kommunisere med system B (vanligvis GIS).  GIS-systemet overtar kontroll gjennom en LINK og brukeren angir et område i GIS systemet interaktivt. GIS-systemet lager koordinater og sender tilbake til angitt `kontoID`.
 
 En kan benytte alle Vis-funksjoner for å zoome inn i kartet
 
-Eksempel på LINK
+##### Url - med eksempel
 
-http://www.system.no/side.html?funksjon=VisEiendom&kommunenummer=0123&gaardsnummer=1&bruksnummer=2&festenummer=0&seksjonsnummer=1&hint=LagOmraade&sesjon=A12345678901&link2=http://www.systemB.no/omraade.html?sesjon=A12345678901
-Operation
+http://www.system.no/side.html?funksjon=VisEiendom&kommunenummer=0123&gaardsnummer=1&bruksnummer=2&festenummer=0&seksjonsnummer=1&hint=LagOmraade&sesjonID=A12345678901&kontoID=123124124
 
+**Parametere:**
+- funksjon = VisEiendom
+- kommunenummer
+- gaardsnummer
+- bruksnummer
+- festenummer
+- seksjonsnummer
+- hint = LagOmraade
+- sesjonID
+- kontoID
 
 ### Meldingstyper og skjema
 
@@ -96,15 +145,10 @@ Json schemas er forsøkt modellert etter UML diagrammer fra GI Link, men med end
 
 #### Meldingstyper / json schemas
 
-- `no.ks.fiks.link.v1.innsyn.kartutsnitt.hent.schema.json`
-- `no.ks.fiks.link.v1.innsyn.kartutsnitt.hent.resultat.schema.json` - Droppet dokument som navn og refererer til LagKartutsnitt funksjonen
-- `no.ks.fiks.link.v1.innsyn.naboliste.hent.schema.json` 
-- `no.ks.fiks.link.v1.innsyn.naboliste.hent.resultat.schema.json` - Endringer i struktur / feltnavn fra GI Link****
-- `no.ks.fiks.link.v1.innsyn.flate.hent.schema.json`
-- `no.ks.fiks.link.v1.innsyn.flate.hent.resultat.schema.json` - Returner "flate" slik den er definert i Fiks Plan?
-- `no.ks.fiks.link.v1.innsyn.posisjon.hent.schema.json`
-- `no.ks.fiks.link.v1.innsyn.posisjon.hent.resultat.schema.json` - Returnerer "posisjon" slik den er definert i Fiks Plan?
-
+- `no.ks.fiks.link.v1.innsyn.kartutsnitt.send.schema.json`
+- `no.ks.fiks.link.v1.innsyn.naboliste.send.schema.json` 
+- `no.ks.fiks.link.v1.innsyn.flate.send.schema.json`
+- `no.ks.fiks.link.v1.innsyn.posisjon.send.schema.json`
 
 #### Json schemas for datatyper brukt i meldingstypene
 
@@ -118,62 +162,35 @@ Json schemas er forsøkt modellert etter UML diagrammer fra GI Link, men med end
 - `no.ks.fiks.link.v1.felles.matrikkelnummer.schema.json` - Kopiert fra Fiks Plan
 - `no.ks.fiks.link.v1.felles.posisjon.schema.json` - Kopiert fra Fiks Plan
 
-### Hent punkt 
+### Send posisjon - resultat av LagPunkt
 
-**Skjema for meldingstypene:**
-- [`no.ks.fiks.link.v1.innsyn.posisjon.hent.schema.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.posisjon.hent.schema.json)
-- [`no.ks.fiks.link.v1.innsyn.punkt.hent.resultat.schema.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.posisjon.hent.resultat.schema.json)
+**Skjema for meldingstype:**
+- [`no.ks.fiks.link.v1.innsyn.posisjon.send.schema.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.posisjon.send.schema.json)
 
-##### Resultat
+![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.posisjon.send/class-diagram.png)
 
-Datastruktur i json-schemas. UML fra GI Link ble brukt som utgangspunkt.
+### Send naboliste - resultat av LagNaboliste
 
-![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.posisjon.hent.resultat/class-diagram.png)
+- [`no.ks.fiks.link.v1.innsyn.naboliste.send.schema.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.naboliste.send.schema.json)
 
-### Hent naboliste
-
-- [`no.ks.fiks.link.v1.innsyn.naboliste.hent.schema.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.naboliste.hent.schema.json)
-- [`no.ks.fiks.link.v1.innsyn.naboliste.hent.resultat.schema.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.naboliste.hent.resultat.schema.json) 
-
-##### Resultat
-
-Datastruktur i json-schemas. UML fra GI Link ble brukt som utgangspunkt.
-
-![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.naboliste.hent.resultat/class-diagram.png)
+![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.naboliste.send/class-diagram.png)
 
 
-### Hent kartutsnitt
+### Send kartutsnitt - resultat av LagKartutsnitt
 
-**Skjema for meldingstypene:**
-- [`no.ks.fiks.link.v1.innsyn.kartutsnitt.hent.schema.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.kartutsnitt.hent.schema.json)
-- [`no.ks.fiks.link.v1.innsyn.kartutsnitt.hent.resultat.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.dokument.hent.resultat.schema.json)
-
-##### Hent 
-
-![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.kartutsnitt.hent/class-diagram.png)
-
-##### Resultat
-
-Viser til fil som kommer med som payload i resultat meldingen
-
-![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.kartutsnitt.hent.resultat/class-diagram.png)
+**Skjema for meldingstype:**
+- [`no.ks.fiks.link.v1.innsyn.kartutsnitt.send.schema.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.kartutsnitt.send.schema.json)
 
 
-### Hent omraade
+![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.kartutsnitt.send/class-diagram.png)
 
-**Skjema for meldingstypene:**
-- [`no.ks.fiks.link.v1.innsyn.flate.hent.schema.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.flate.hent.schema.json)
-- [`no.ks.fiks.link.v1.innsyn.flate.hent.resultat.schema.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.omraade.hent.resultat.schema.json)
 
-##### Hent
+### Send flate - resultat av LagOmraade
 
-![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.flate.hent/class-diagram.png)
+**Skjema for meldingstype:**
+- [`no.ks.fiks.link.v1.innsyn.flate.send.schema.json`](Schema/V1/no.ks.fiks.link.v1.innsyn.flate.send.schema.json)
 
-##### Resultat
-
-Datastruktur i json-schemas. UML fra GI Link ble brukt som utgangspunkt sammen med dokument fra Fiks Arkiv
-
-![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.flate.hent.resultat/class-diagram.png)
+![](Dokumentasjon/V1/ClassDiagrams/no.ks.fiks.link.v1.innsyn.flate.send/class-diagram.png)
 
 
 

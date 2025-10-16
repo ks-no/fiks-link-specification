@@ -1,9 +1,9 @@
 @startuml
-class HentNabolisteResultat {
+class SendNaboliste {
     naboeiendommer: Eiendom[]
 }
 
-HentNabolisteResultat .. Eiendom
+SendNaboliste .. Eiendom
 
 class Eiendom {
     * matrikkelnummer: Matrikkelnummer
