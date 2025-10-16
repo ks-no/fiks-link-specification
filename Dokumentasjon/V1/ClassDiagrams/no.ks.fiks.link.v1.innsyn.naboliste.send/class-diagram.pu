@@ -1,5 +1,6 @@
 @startuml
 class SendNaboliste {
+    sesjonID: string
     naboeiendommer: Eiendom[]
 }
 

@@ -1,6 +1,7 @@
 @startuml
 
 class SendPosisjon {
+    +sesjonID: string
     +punkt: Posisjon
 }
 

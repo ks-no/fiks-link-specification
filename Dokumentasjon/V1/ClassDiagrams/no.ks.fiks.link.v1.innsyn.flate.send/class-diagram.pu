@@ -1,6 +1,7 @@
 @startuml
 
 class SendFlate {
+    +sesjonID: string
     +omraade: Flate
 }
 

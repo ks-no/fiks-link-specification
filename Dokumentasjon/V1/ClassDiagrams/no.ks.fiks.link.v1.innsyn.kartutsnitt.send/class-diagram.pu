@@ -1,6 +1,7 @@
 @startuml
 
 class SendKartutsnitt {
+    +sesjonID: string
     +filnavn: string
 }
 
