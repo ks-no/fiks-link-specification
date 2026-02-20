@@ -1,10 +1,11 @@
 @startuml
 
-class HentFlateResultat {
+class SendFlate {
+    +sesjonID: string
     +omraade: Flate
 }
 
-HentFlateResultat -- Flate
+SendFlate -- Flate
 
 class Flate {
     +type: string

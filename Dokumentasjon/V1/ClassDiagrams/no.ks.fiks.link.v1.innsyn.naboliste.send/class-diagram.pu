@@ -1,9 +1,10 @@
 @startuml
-class HentNabolisteResultat {
+class SendNaboliste {
+    sesjonID: string
     naboeiendommer: Eiendom[]
 }
 
-HentNabolisteResultat .. Eiendom
+SendNaboliste .. Eiendom
 
 class Eiendom {
     * matrikkelnummer: Matrikkelnummer

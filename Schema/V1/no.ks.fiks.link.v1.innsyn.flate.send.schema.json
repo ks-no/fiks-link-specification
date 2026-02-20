@@ -1,12 +1,15 @@
 ﻿{
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "no.ks.fiks.link.v1.innsyn.flate.hent.schema.json",
-    "title": "HentFlate",
+    "$id": "no.ks.fiks.link.v1.innsyn.flate.send.schema.json",
+    "title": "SendFlate",
     "definitions": {},
     "type": "object",
     "properties": {
         "sesjonsId": {
             "type": "string"
+        },
+        "omraade": {
+            "$ref": "no.ks.fiks.link.v1.felles.flate.schema.json"
         }
     },
     "required": [

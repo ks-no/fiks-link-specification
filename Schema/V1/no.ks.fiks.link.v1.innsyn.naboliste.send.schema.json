@@ -5,11 +5,17 @@
     "definitions": {},
     "type": "object",
     "properties": {
+        "sesjonsId": {
+            "type": "string"
+        },
         "naboeiendommer": {
             "type": "array",
             "items": {
                 "$ref": "no.ks.fiks.link.v1.felles.eiendom.schema.json"
             }
         }
-    }
+    },
+    "required": [
+        "sesjonsId"
+    ]
 }

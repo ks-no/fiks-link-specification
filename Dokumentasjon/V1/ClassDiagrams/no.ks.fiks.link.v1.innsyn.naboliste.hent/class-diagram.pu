@@ -1,9 +1,0 @@
-@startuml
-
-class HentNaboliste {
-    *sesjonsId: string
-    *inkluderEiere: boolean
-    *inkluderEiendomadresser: boolean
-}
-
-@enduml

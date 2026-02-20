@@ -5,10 +5,14 @@
     "definitions": {},
     "type": "object",
     "properties": {
+        "sesjonsId": {
+            "type": "string"
+        },
         "punkt": {
             "$ref": "no.ks.fiks.link.v1.felles.posisjon.schema.json"
         }
     },
     "required": [
+        "sesjonsId"
     ]
 }

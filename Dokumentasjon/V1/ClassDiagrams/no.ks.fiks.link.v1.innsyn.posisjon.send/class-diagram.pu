@@ -1,10 +1,11 @@
 @startuml
 
-class HentPosisjonResultat {
+class SendPosisjon {
+    +sesjonID: string
     +punkt: Posisjon
 }
 
-HentPosisjonResultat -- Posisjon
+SendPosisjon -- Posisjon
 
 class Posisjon {
     +type: string
